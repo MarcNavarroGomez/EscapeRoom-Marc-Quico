@@ -1,13 +1,9 @@
 <?php
-// Verifica si se ha enviado el formulario
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verifica si los campos de usuario y contraseña están vacíos
-    if (empty($_POST['usuario']) || empty($_POST['password'])) {
-        // Redirecciona de vuelta a la página anterior
-        header("Location: index.html");
-        exit; // Termina el script para evitar que se ejecute más código
-    } else {
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST['usuario']) || empty($_POST['password'])) {
+        header("Location: index.html");
+    } else {
         header("Location: pagina0.php");
         exit;
     }
@@ -22,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
   <h1 align= center>¡Alerta! Se ha detectado un virus en tu ordenador</h1>
-  <p align= center>Para eliminar el virus, necesitas pasar una serie de pruebas. Por favor, antes de empezar completa el siguiente formulario; al finalizar las pruebas, obtendras una calve para desactivar el virus en el correo que pongas, así que ten cuidado con el que pones...</p>
+  <p align= center>Para eliminar el virus, necesitas pasar una serie de pruebas. Por favor, antes de empezar completa el siguiente formulario; al finalizar las pruebas, obtendras una calve para desactivar el virus en el correo que pongas, así que ten cuidado con el que pones... Y sobre tus nombres... ten cuidado amigo, con el nombre que pongas, es por el que te voy a llamar...</p>
   <div align= center class="card-login-externo">
   <div class="card-login">
   <form action="pagina1.php" method="post">

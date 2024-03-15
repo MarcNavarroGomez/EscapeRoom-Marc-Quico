@@ -1,26 +1,19 @@
 <?php
-// Iniciar la sesión si no está iniciada
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar si la clave 'mensaje' está presente en $_POST
-    if (isset($_POST['mensaje'])) {
-        // Obtener el mensaje enviado en el formulario
-        $mensaje_enviado = $_POST['mensaje'];
-        // Mensaje desencriptado esperado
-        $mensaje_desencriptado_esperado = "Hola clase, estamos en un momento tenso, callarse porfavor";
 
-        // Comparar el mensaje enviado con el mensaje desencriptado esperado
+    if (isset($_POST['mensaje'])) {
+        $mensaje_enviado = $_POST['mensaje'];
+        $mensaje_desencriptado_esperado = "Hola clase, estamos en un momento tenso, callarse porfavor";
         if ($mensaje_enviado == $mensaje_desencriptado_esperado) {
-            // El mensaje enviado coincide con el mensaje desencriptado esperado
             header("Location: pagina3.php");
             exit;
         } else {
-            // El mensaje enviado no coincide con el mensaje desencriptado esperado
-            $_SESSION['pista'] = "Recuerda verificar la ortografía y la puntuación del mensaje. Pista extra porque me caes bien: 7 = T, 5 = S";
+            $_SESSION['pista'] = " <br>Recuerda verificar la ortografía y la puntuación del mensaje. Pista extra porque me caes bien: 7 = T, 5 = S";
         }
     }
 }
@@ -33,16 +26,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="puzzle-container">
-        <div>
-            <h1>
-                BUENO, VAS BIEN, PERO AHORA UNA PRUEBA UN POCO MÁS DIFICIL, DESENCRIPTA ESTE MENSAJE MEZCLADO CON NUMEROS, RESPETA LOS ESPACIOS, COMAS, MAYUSCULAS Y MINUSCULAS
-            </h1>
+    <div class="content">
+        <div class="box">
+        BUENO, VAS BIEN, PERO AHORA UNA PRUEBA UN POCO MÁS DIFICIL, DESENCRIPTA ESTE MENSAJE MEZCLADO CON NUMEROS, <br>
+         RESPETA LOS ESPACIOS, COMAS, MAYUSCULAS Y MINUSCULAS <br>
         </div>
+
         <?php
-        // Mostrar el mensaje de pista si está presente en la sesión
+ 
         if (isset($_SESSION['pista'])) {
             echo '<div class="pista">' . $_SESSION['pista'] . '</div>';
-            unset($_SESSION['pista']); // Limpiar la pista de la sesión después de mostrarla
+            unset($_SESSION['pista']);
         }
         ?>
         <div class="message-screen">Mensaje encriptado: H0l4 cl453, 3574m05 3n un m0m3n70 73n50, c4ll4r53 p0rf4v0r</div>

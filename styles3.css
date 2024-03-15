@@ -13,20 +13,20 @@
     height: 100%;
     background-image: url('./img/virus-informaticos-1024x500.jpg'); 
     background-size: cover;
-    opacity: 0.4; /* Configuramos la opacidad inicialmente a 0 */
-    animation: desvanecer 10s infinite alternate; /* Animación de desvanecimiento durante 10 segundos, repetida infinitamente */
+    opacity: 0.4; 
+    animation: desvanecer 10s infinite alternate; 
     z-index: -1;
   }
   
   @keyframes desvanecer {
     0% {
-      opacity: 1; /* Opacidad máxima al inicio */
+      opacity: 1; 
     }
     50% {
-      opacity: 0; /* Opacidad mínima a la mitad de la animación */
+      opacity: 0; 
     }
     100% {
-      opacity: 1; /* Opacidad máxima al final */
+      opacity: 1; 
     }
   }
   

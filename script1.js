@@ -5,7 +5,6 @@ let cards = [];
 let flippedCards = [];
 let pairsFound = 0;
 
-// Programar en ingles es una buena practica
 function shuffle(array){
     return array.slice().sort( () => Math.random() - 0.5 );
 }
@@ -26,7 +25,6 @@ function createCard(symbol){
     return card;
 }
 
-// Funcion para volter las cartas
 function flipCard(card){
     if( flippedCards.length < 2 
         && !flippedCards.includes(card) 
@@ -52,7 +50,7 @@ function checkMatch(){
         pairsFound++;        
         
         if(pairsFound === totalPairs){
-            alert('Has ganado!!!!!!');
+            alert('Has ganado!!!!!!El codigo es 777');
         }
     } else {
         card1.classList.remove('flipped');
@@ -64,7 +62,7 @@ function checkMatch(){
 }
 
 
-// Esta funcion va a iniciar nuestro juego
+
 function initializeGame(){
     cards = shuffle([...symbols, ...symbols]);
     pairsFound = 0;

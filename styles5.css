@@ -1,43 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.puzzle-container {
-    text-align: center;
-}
-
-.message-screen {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: white;
-    font-family: sans-serif;
-    margin-top: 100px;
-    width: 100%;
-    animation: typing 8s steps(34), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    text-align: center;
-}
-
-.lock input {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.lock button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
 body{
     background-color: black;
 }
@@ -56,15 +18,11 @@ white-space: nowrap;
 overflow: hidden;
 text-align: center;
 }
-.pista {
-    color: white;
-}
 .boton {
     text-align: center;
 }
-
 .btn-login {
-    width: 100%;
+    width: 10%;
     padding: 6px 0px;
     margin: 30px;
     border: none;

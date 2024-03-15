@@ -55,7 +55,7 @@ $correo = $_POST['email'];
             <label for="respuesta4c"><input type="radio" id="respuesta4c" name="respuesta4" value="c"> c) Las actualizaciones de software solo mejoran la interfaz de usuario.</label><br>
           </div>
           </div>
-          <br><button class="btn-login">Enviar respuestas</button>
+          <br><button class="btn-login" type="">Enviar respuestas</button>
     </form>
     
 </body>
@@ -63,44 +63,36 @@ $correo = $_POST['email'];
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Respuestas correctas
     $respuestas_correctas = array(
-        "pregunta1" => "b", 
-        "pregunta2" => "c", 
-        "pregunta3" => "b", 
+        "respuesta1" => "b", 
+        "respuesta2" => "c", 
+        "respuesta3" => "b", 
+        "respuesta4" => "a"
     );
 
-    // Recoger las respuestas del usuario del formulario anterior
+    // Respuestas del usuario
     $respuestas_usuario = array(
-        "pregunta1" => $_POST['respuesta1'], 
-        "pregunta2" => $_POST['respuesta2'],
-        "pregunta3" => $_POST['respuesta3'],
+        "respuesta1" => isset($_POST['respuesta1']) ? $_POST['respuesta1'] : '', 
+        "respuesta2" => isset($_POST['respuesta2']) ? $_POST['respuesta2'] : '',
+        "respuesta3" => isset($_POST['respuesta3']) ? $_POST['respuesta3'] : '',
+        "respuesta4" => isset($_POST['respuesta4']) ? $_POST['respuesta4'] : ''
     );
 
-    $pistas = array(
-        "pregunta1" => "Un virus, se supone que es algo malo verdad?",
-        "pregunta2" => "Confías de todos los correos que recibes?",
-        "pregunta3" => "Si un virus es malo, el rendimiento será mayor o menor?",
-    ); 
-
-    $respuestas_usuario = array_map('strtolower', $respuestas_usuario);
-
+    // Verificar si todas las respuestas están presentes y son correctas
     $respuestas_correctas_values = array_intersect_assoc($respuestas_usuario, $respuestas_correctas);
 
     if (count($respuestas_correctas_values) == count($respuestas_correctas)) {
+        // Todas las respuestas son correctas, redireccionar a la siguiente página
         header("Location: pagina2.php");
         exit();
     } else {
-
-        $_SESSION['mensaje'] = "";
-        foreach ($respuestas_correctas as $pregunta => $respuesta_correcta) {
-            if ($respuestas_usuario[$pregunta] != $respuesta_correcta) {
-                $pista = $pistas[$pregunta];
-                $_SESSION['mensaje'] .= "Pregunta: $pregunta - Pista: $pista <br>";
-            }
-        }
+        // No todas las respuestas son correctas, almacenar un mensaje de error en la sesión
+        $_SESSION['mensaje'] = "¡Lo siento! Algunas respuestas son incorrectas.";
         header("Location: pagina1.php");
         exit();
     }
 }
 ?>
+
 
