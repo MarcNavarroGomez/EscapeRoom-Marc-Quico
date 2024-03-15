@@ -1,25 +1,18 @@
-<?php
-$nombre = $_POST['nombre'];
-$correo = $_POST['email'];
-?>
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primera Prueba</title>
-    <link rel="stylesheet" href="./styles3.css">
+    <link rel="stylesheet" href="./css/styles3.css">
 </head>
 <body>
   <div class="fondo-desvaneciente">
     <h2 align= center>PRIMERA PRUEBA</h2>
     <div align= center>
-      <?php echo "Buenas " .  $nombre . " veo que quieres quitar tu virus del ordenador, pero primero deberas pasar una serie de pruebas. Pero primero, creo que debes informarte de lo que te he metido en el ordenador... <br><br>
+      <?php echo "Buenas veo que quieres quitar tu virus del ordenador, pero primero deberas pasar una serie de pruebas. Pero primero, creo que debes informarte de lo que te he metido en el ordenador... <br><br>
       PREPARATE!" ; ?>
     </div>
     <br>
-    <form action="pagina2.php" method="post">
+    <form action="" method="post">
           <div>
             <legend><h1>Pregunta 1: ¿Qué es un virus informático?</h1></legend>
             <br>
@@ -82,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si todas las respuestas están presentes y son correctas
     $respuestas_correctas_values = array_intersect_assoc($respuestas_usuario, $respuestas_correctas);
 
-    if (count($respuestas_correctas_values) == count($respuestas_correctas)) {
+    if ($respuestas_correctas_values == $respuestas_correctas) {
         // Todas las respuestas son correctas, redireccionar a la siguiente página
         header("Location: pagina2.php");
         exit();

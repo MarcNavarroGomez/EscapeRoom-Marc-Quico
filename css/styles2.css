@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url(./img/virus_informaticos-rojo.webp);
+    background-image: url(./virus_informaticos-rojo.webp);
     background-size: cover; 
     animation: moveBackground 15s linear infinite;
     font-family: 'Noto Sans', sans-serif;

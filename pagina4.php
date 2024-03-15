@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "sistemas" => $_POST["sistemas"],
         "base" => $_POST["base"],
         "aprobado" => $_POST["aprobado"],
-        "color" => $_POST["color"]
     );
 
 
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (count($respuestas_correctas_usuario) == count($respuestas_correctas)) {
 
-        header("Location: pagina5.php");
+        header("Location: pagina6.php");
         exit();
     } else {
         echo "Algunas respuestas son incorrectas. Por favor, inténtalo de nuevo. No pongas apellidos, y recuerda las primeras letras en mayuscula";
@@ -35,9 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Preguntas</title>
+    <link rel="stylesheet" href="./css/styles9.css">
 </head>
 <body>
-    <h1>Formulario de Preguntas</h1>
+<div class="fondo-desvaneciente">
+    <h1 align="center ">Formulario de Preguntas</h1>
+    <div class="formulario">
     <form action="" method="post">
         <label for="nombre">1. ¿Si tengo un problema con la configuracion de mi ejercicio del Packet Tracer a quien debo acudir?</label><br>
         <input type="text" id="nombre" name="redes" required><br><br>
@@ -51,9 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="hobby">4. ¿Cuantos alumnos aprobaron el famoso hackaton?</label><br>
         <input type="number" id="hobby" name="aprobado" required><br><br>
 
-        <label for="color">5. ¿Cuál es tu color favorito?</label><br>
-        <input type="text  " id="color" name="color" required><br><br>
-
-        <input type="submit" value="Enviar">
+        <input type="submit" class= "btn-login"value=" Enviar">
     </form>
+    </div>
+</div>
 </body>
